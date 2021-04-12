@@ -1,0 +1,44 @@
+﻿@page
+@model FizzBuzz.Pages.OstatnioSzukane.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>DoBazy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoBazy.Number" class="control-label"></label>
+                <input asp-for="DoBazy.Number" class="form-control" />
+                <span asp-validation-for="DoBazy.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoBazy.Wynik" class="control-label"></label>
+                <input asp-for="DoBazy.Wynik" class="form-control" />
+                <span asp-validation-for="DoBazy.Wynik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoBazy.Data" class="control-label"></label>
+                <input asp-for="DoBazy.Data" class="form-control" />
+                <span asp-validation-for="DoBazy.Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
