@@ -23,7 +23,7 @@ namespace FizzBuzz.Pages.OstatnioSzukane
 
         public async Task OnGetAsync()
         {
-            DoBazy = await _context.DoBazy.ToListAsync();
+            DoBazy = await _context.DoBazy.OrderByDescending(f => f.Data).Take(10).ToListAsync();
         }
     }
 }
