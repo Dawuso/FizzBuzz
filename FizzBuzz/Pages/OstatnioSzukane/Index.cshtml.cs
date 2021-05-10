@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FizzBuzz.Data;
 using FizzBuzz.Do_bazy;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FizzBuzz.Pages.OstatnioSzukane
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly FizzBuzz.Data.FBcontext _context;
@@ -23,7 +25,7 @@ namespace FizzBuzz.Pages.OstatnioSzukane
 
         public async Task OnGetAsync()
         {
-            DoBazy = await _context.DoBazy.OrderByDescending(f => f.Data).Take(10).ToListAsync();
+            DoBazy = await _context.DoBazy.OrderByDescending(f => f.Data).Take(20).ToListAsync();
         }
     }
 }

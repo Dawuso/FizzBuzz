@@ -9,7 +9,7 @@ namespace FizzBuzz.Data
 {
     public class FBcontext : DbContext
     {
-        public FBcontext(DbContextOptions options) : base(options) { }
+        public FBcontext(DbContextOptions<FBcontext> options) : base(options) { }
         public DbSet<DoBazy> DoBazy { get; set; }
     }
 }
