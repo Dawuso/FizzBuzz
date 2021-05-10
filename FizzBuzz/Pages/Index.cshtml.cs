@@ -12,6 +12,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration; 
 using System.Data;
 
+
 namespace FizzBuzz.Pages
 {
     public class IndexModel : PageModel
@@ -67,6 +68,10 @@ namespace FizzBuzz.Pages
                 SqlParameter Id_SqlParam = new SqlParameter("@Id", SqlDbType.Int); 
                 Id_SqlParam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(Id_SqlParam);
+
+                SqlParameter ownerid_SqlParam = new SqlParameter("@OwnerID", SqlDbType.VarChar, 50);
+                ownerid_SqlParam.Value = User.Identity.Name;
+                cmd.Parameters.Add(ownerid_SqlParam);
                 con.Open();
                 int numAff = cmd.ExecuteNonQuery();
                 con.Close();
